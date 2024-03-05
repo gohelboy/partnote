@@ -12,7 +12,7 @@ interface UserInterfaceProps {
 const UserAvatar = ({ src, name, fallback, borderColor }: UserInterfaceProps) => {
     return (
         <Hint label={name || "Memeber"} side='bottom' sideOffset={10}>
-            <Avatar className='h-8 w-8 border-2' style={{ borderColor: borderColor }}>
+            <Avatar className='h-8 w-8 cursor-pointer border-2 hover:scale-110 duration-300' style={{ borderColor: borderColor }}>
                 <AvatarImage src={src} />
                 <AvatarFallback className='text-sm font-semibold'>
                     {fallback}
