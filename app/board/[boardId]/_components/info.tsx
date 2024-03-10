@@ -51,7 +51,7 @@ const Info = ({ boardId }: InfoProps) => {
         <div className='absolute top-2 left-2 bg-white rounded-lg shadow-md px-2 h-12 flex items-center justify-center'>
             <Hint label='Go To Boards' side='bottom' sideOffset={10}>
                 <Button variant="ghost" className='w-min'>
-                    <Link href={"/"} className='flex items-center justify-center gap-1'>
+                    <Link href={"/"} className='flex select-none items-center justify-center gap-1'>
                         <Image src="/logo.svg" width={34} height={34} alt='board logo' />
                         <span className='font-bold text-xl'>Skribble</span>
                     </Link>
@@ -64,7 +64,7 @@ const Info = ({ boardId }: InfoProps) => {
                 <Input value={newBoardName} onChange={(e) => setBoardName(e.target.value)} />
                 <Button variant={"outline"} onClick={updateBoardName} disabled={pending}>Save</Button>
             </div> : <Hint label='Edit' side='bottom' sideOffset={10}>
-                <Button className='font-semibold' variant={"ghost"} onClick={() => setEditBoardName(true)}>
+                <Button className='font-semibold select-none' variant={"ghost"} onClick={() => setEditBoardName(true)}>
                     {data.title}
                 </Button>
             </Hint>}

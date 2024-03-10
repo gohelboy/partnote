@@ -97,7 +97,7 @@ export type CanvasState =
     }
     | {
         mode: CanvasMode.Inserting;
-        LayerType: LayerType.Elipse | LayerType.Rectangle | LayerType.Note | LayerType.Text | LayerType.Path
+        LayerType: LayerType.Elipse | LayerType.Rectangle | LayerType.Note | LayerType.Text
     }
     | {
         mode: CanvasMode.Pencil;
@@ -122,3 +122,5 @@ export enum CanvasMode {
     Resizing,
     Pencil,
 }
+
+export type Layer = RectangleLayer | ElipseLayer | PathLayer | TextLayer | NoteLayer;

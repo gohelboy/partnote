@@ -17,7 +17,7 @@ const Page = ({ searchParams }: DahsboardProps) => {
     const { organization } = useOrganization();
 
     return (
-        <div className="px-6 h-[calc(100vh-80px)]">
+        <div className="h-[calc(100vh-80px)]">
             {!organization ? (<EmptyOrg />) : (<BoardList orgId={organization.id} query={searchParams} />)}
         </div>
     )

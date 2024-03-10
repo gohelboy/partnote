@@ -24,7 +24,7 @@ const Cursor = memo(({ connectionId }: CursorProps) => {
                 transform: `translateX(${x}px) translateY(${y}px)`
             }}>
             <MousePointer2 className='h-5 w-5' style={{ fill: connectionIdColor(connectionId), color: connectionIdColor(connectionId) }} />
-            <div className='absolute rounded-md text-white text-xs left-4 bottom-3 p-1' style={{ backgroundColor: connectionIdColor(connectionId) }}>{name}</div>
+            <div className='absolute rounded-md text-white text-xs left-4 bottom-3 p-1 select-none' style={{ backgroundColor: connectionIdColor(connectionId) }}>{name}</div>
         </foreignObject>
     )
 })

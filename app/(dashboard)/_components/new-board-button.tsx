@@ -26,7 +26,7 @@ const NewBoardButton = () => {
         }).catch((err) => { toast.error("Failed to create board!"); });
     }
     return (
-        <Button className="h-full min-h-[200px] flex flex-col gap-2 rounded-2xl" onClick={onclick}>
+        <Button className="h-full min-h-[240px] flex flex-col gap-2 rounded-2xl" onClick={onclick}>
             {pending ?
                 <Image src="/logoWhite.png" width={35} height={35} alt="loading" className="animate-spin duration-1000" />
                 : <> <Pencil /> <span>New Board</span> </>}

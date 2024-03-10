@@ -72,9 +72,9 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
     }
 
     return (
-        <div className='h-full flex-col'>
+        <div className='@container h-full flex-col overflow-auto p-6'>
             <h2 className='text-3xl font-semibold'>{query.favorites ? "Favorite Boards" : "Team Boards"}</h2>
-            <div className='grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 grid-flow-row mt-6 pb-10'>
+            <div className='grid gap-4 @[480px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  grid-flow-row mt-6 pb-10'>
                 <NewBoardButton />
                 {boards.map((board) => {
                     return <BoardCard

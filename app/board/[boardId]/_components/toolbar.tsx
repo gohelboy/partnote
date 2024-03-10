@@ -76,8 +76,8 @@ const Toolbar = ({ canvasState, setCanvasState, undo, redo, canUndo, canRedo }: 
                 />
             </div>
             <div className='flex flex-col items-center gap-2 bg-white shadow-md p-1 rounded-lg'>
-                <ToolButton label='Undo' icon={Undo2} onClick={undo} isDisabled={!canRedo} />
-                <ToolButton label='Redo' icon={Redo2} onClick={redo} isDisabled={!canUndo} />
+                <ToolButton label='Undo' icon={Undo2} onClick={undo} isDisabled={!canUndo} />
+                <ToolButton label='Redo' icon={Redo2} onClick={redo} isDisabled={!canRedo} />
             </div>
         </div>
     )

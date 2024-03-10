@@ -49,7 +49,7 @@ const BoardCard = ({ id, title, authorName, authorId, createdAt, imageUrl, isFav
 
     return (
         <div className="group relative h-fit rounded-2xl  overflow-hidden cursor-pointer  transition-outline border hover:shadow-lg  hover:outline-gray-400 hover:outline-dashed" onClick={openBoard}>
-            <div className="h-[150px] relative flex-1 bg-amber-100" >
+            <div className="h-[200px] relative flex-1 bg-amber-100" >
                 <Image className="object-cover" src={imageUrl} alt={title} fill />
             </div>
             <div className="p-4">
@@ -65,7 +65,7 @@ const BoardCard = ({ id, title, authorName, authorId, createdAt, imageUrl, isFav
                 <p className="text-xs transition-opacity opacity-0 group-hover:opacity-100 text-muted-foreground">{authorLabel}, {createAtLabel}</p>
             </div>
             <DropDownActions id={id} title={title} side="bottom" sideOffset={10} >
-                <MoreHorizontal className="p-1 absolute top-2 text-muted-foreground right-3 opacity-0 transition-all group-hover:opacity-100 rounded-md hover:bg-slate-800 hover:text-white" />
+                <MoreHorizontal className="p-1 absolute top-2 text-muted-foreground right-3 opacity-100 md:opacity-0 transition-all group-hover:opacity-100 rounded-md hover:bg-slate-800 hover:text-white" />
             </DropDownActions>
         </div>
     )

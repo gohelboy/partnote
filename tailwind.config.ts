@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-import defaultTheme from "tailwindcss/defaultTheme"
 
 const config = {
   darkMode: ["class"],
@@ -15,10 +14,14 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
       },
     },
     extend: {
+      screens: {
+        "xs": "480px",
+        "2xl": "1400px",
+        "3xl": "1600px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -75,7 +78,7 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/container-queries')],
 } satisfies Config
 
 export default config
