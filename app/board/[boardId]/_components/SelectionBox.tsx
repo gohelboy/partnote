@@ -35,7 +35,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         cursor: 'nw-resize',
                         transform: `translateX(${bounds.x - HANDLE_WIDTH / 2 + 4}px) translateY(${bounds.y - HANDLE_WIDTH / 2 + 4}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Top + Side.Left, bounds)
+                    }}
                 />
                 <rect
                     className='fill-white stroke-blue-700 stroke-1'
@@ -46,7 +49,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         height: `${HANDLE_WIDTH}px`,
                         transform: `translateX(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px) translateY(${bounds.y - HANDLE_WIDTH / 2}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Top, bounds)
+                    }}
                 />
                 <ellipse
                     className='fill-white stroke-blue-700 stroke-1'
@@ -55,7 +61,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         cursor: 'ne-resize',
                         transform: `translateX(${bounds.x + bounds.width - HANDLE_WIDTH / 2 + 4}px) translateY(${bounds.y - HANDLE_WIDTH / 2 + 4}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Top + Side.Right, bounds)
+                    }}
                 />
                 <rect
                     className='fill-white stroke-blue-700 stroke-1'
@@ -64,9 +73,12 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         cursor: 'ew-resize',
                         width: `${HANDLE_WIDTH}px`,
                         height: `${HANDLE_WIDTH}px`,
-                        transform: `translateX(${bounds.x + bounds.width - HANDLE_WIDTH / 2}px) translateY(${bounds.y + bounds.height / 2 - HANDLE_WIDTH}px)`
+                        transform: `translateX(${bounds.x + bounds.width - HANDLE_WIDTH / 2}px) translateY(${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Right, bounds)
+                    }}
                 />
                 <ellipse
                     className='fill-white stroke-blue-700 stroke-1'
@@ -77,7 +89,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         height: `${HANDLE_WIDTH}px`,
                         transform: `translateX(${bounds.x + bounds.width - HANDLE_WIDTH / 2 + 4}px) translateY(${bounds.y + bounds.height - HANDLE_WIDTH / 2 + 4}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Bottom + Side.Right, bounds)
+                    }}
                 />
                 <rect
                     className='fill-white stroke-blue-700 stroke-1'
@@ -88,7 +103,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         height: `${HANDLE_WIDTH}px`,
                         transform: `translateX(${bounds.x + bounds.width / 2 - HANDLE_WIDTH / 2}px) translateY(${bounds.y + bounds.height - HANDLE_WIDTH / 2}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Bottom, bounds)
+                    }}
                 />
                 <ellipse
                     className='fill-white stroke-blue-700 stroke-1'
@@ -99,7 +117,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         height: `${HANDLE_WIDTH}px`,
                         transform: `translateX(${bounds.x - HANDLE_WIDTH / 2 + 4}px) translateY(${bounds.y + bounds.height - HANDLE_WIDTH / 2 + 4}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Bottom + Side.Left, bounds)
+                    }}
                 />
                 <rect
                     className='fill-white stroke-blue-700 stroke-1'
@@ -110,7 +131,10 @@ const SelectionBox = memo(({ onPointerDownHandleResize }: selectionoxProps) => {
                         height: `${HANDLE_WIDTH}px`,
                         transform: `translateX(${bounds.x - HANDLE_WIDTH / 2}px) translateY(${bounds.y + bounds.height / 2 - HANDLE_WIDTH / 2}px)`
                     }}
-                    onPointerDown={(e) => e.stopPropagation()}
+                    onPointerDown={(e) => {
+                        e.stopPropagation();
+                        onPointerDownHandleResize(Side.Left, bounds)
+                    }}
                 />
             </>)}
         </>
