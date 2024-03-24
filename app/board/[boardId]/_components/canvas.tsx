@@ -15,10 +15,10 @@ import SelectionBox from "./SelectionBox";
 import SelectionTool from "./selectiontool";
 
 const MAX_LAYERS = 100;
-const SELECTION_NET_THRESOLD = 5
+const SELECTION_NET_THRESOLD = 5;
 
 interface canvasProps {
-    boardId: string
+    boardId: string;
 }
 
 const Canvas = ({ boardId }: canvasProps) => {

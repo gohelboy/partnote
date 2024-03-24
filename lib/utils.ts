@@ -9,7 +9,7 @@ const USER_COLORS = [
   "#D97706",
   "#059669",
   "#7C3AED",
-  "#DB2777"
+  "#DB2777",
 ]
 
 export const connectionIdColor = (connectionId: number): string => {
