@@ -1,19 +1,19 @@
-import { RGBtoCSS } from '@/lib/utils';
+import { getContrastColor, RGBtoCSS } from '@/lib/utils';
 import { useMutation } from '@/liveblocks.config';
-import { TextLayer } from '@/types/canvas';
+import { NoteLayer, TextLayer } from '@/types/canvas';
 import React from 'react'
 import ContentEditable, { ContentEditableEvent } from 'react-contenteditable'
 
-interface TextProps {
+interface NoteProps {
     id: string;
-    layer: TextLayer;
+    layer: NoteLayer;
     onPointerDown: (e: React.PointerEvent, id: string) => void;
     selectionColor?: string;
 }
 
 const calculateFontSize = (width: number, height: number) => {
     const maxFontSize = 96;
-    const scaleFactor = 0.5;
+    const scaleFactor = 0.15;
     const fontSizeBasedOnHeight = height * scaleFactor;
     const fontSizeBasedOnWidth = width * scaleFactor;
 
@@ -26,7 +26,7 @@ const calculateFontSize = (width: number, height: number) => {
 
 
 
-export const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) => {
+export const Note = ({ id, layer, onPointerDown, selectionColor }: NoteProps) => {
 
     const { x, y, width, height, fill, value } = layer;
 
@@ -47,14 +47,16 @@ export const Text = ({ id, layer, onPointerDown, selectionColor }: TextProps) =>
             onPointerDown={(e) => onPointerDown(e, id)}
             style={{
                 transform: `translateX(${x}px) translateY(${y}px)`,
-                outline: selectionColor ? `1px solid ${selectionColor}` : "none"
+                outline: selectionColor ? `1px solid ${selectionColor}` : "none",
+                backgroundColor: fill ? RGBtoCSS(fill) : "#000",
             }}
+            className='shadow-md drop-shadow-xl'
         >
             <ContentEditable
-                html={value || "Text"}
+                html={value || "Type..."}
                 onChange={handelContentChange}
-                className={"p-0 border-1 h-full w-full flex items-center justify-center text-center drop-shadow-md outline-none"}
-                style={{ color: fill ? RGBtoCSS(fill) : "#000", fontSize: calculateFontSize(width, height) }}
+                className={"p-0 border-1 h-full w-full flex items-center justify-center text-center outline-none"}
+                style={{ color: fill ? getContrastColor(fill) : "#000", fontSize: calculateFontSize(width, height) }}
             />
         </foreignObject>
     )
