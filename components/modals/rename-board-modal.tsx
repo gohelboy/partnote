@@ -27,8 +27,8 @@ const RenameBoardModal = () => {
 
 
     return (
-        <Dialog open={isOpen} onOpenChange={onClose}>
-            <DialogContent>
+        <Dialog open={isOpen} onOpenChange={onClose} >
+            <DialogContent >
                 <DialogHeader className="outline-none">
                     <DialogTitle>Edit board title</DialogTitle>
                 </DialogHeader>

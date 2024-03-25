@@ -17,8 +17,8 @@ const Navbar = () => {
             <div className='block md:hidden flex-1'>
                 <Link href="/">
                     <div className="flex items-center gap-1">
-                        <Image src="./logo.svg" width={30} height={30} alt="logo" />
-                        <span className="font-bold">Skribble</span>
+                        <Image src="./logo.svg" width={140} height={30} alt="logo" />
+                        {/* <span className="font-bold">Skribble</span> */}
                     </div>
                 </Link>
 

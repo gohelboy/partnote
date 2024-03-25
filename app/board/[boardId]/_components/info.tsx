@@ -50,10 +50,9 @@ const Info = ({ boardId }: InfoProps) => {
     return (
         <div className='absolute top-2 left-2 bg-white rounded-lg shadow-md px-2 h-12 flex items-center justify-center'>
             <Hint label='Go To Boards' side='bottom' sideOffset={10}>
-                <Button variant="ghost" className='w-min'>
+                <Button variant="ghost" size={"icon"} >
                     <Link href={"/"} className='flex select-none items-center justify-center gap-1'>
-                        <Image src="/logo.svg" width={34} height={34} alt='board logo' />
-                        <span className='font-bold text-xl'>Skribble</span>
+                        <Image src="/icon.svg" width={34} height={34} alt='partnote logo' className='pt-1' />
                     </Link>
                 </Button>
             </Hint>

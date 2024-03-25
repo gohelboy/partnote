@@ -10,6 +10,9 @@ import { toast } from 'sonner';
 import BoardCard from './board-card';
 import NewBoardButton from './new-board-button';
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
+import { ChevronLeft, Star } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 interface BoardListProps {
     orgId: string,
@@ -42,7 +45,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
 
     if (boards === undefined) {
         return <div className='h-full flex items-center justify-center'>
-            <Image className='animate-ping duration-1000' width={70} height={70} src="/logo.svg" alt='favorite' />
+            <Image className='animate-pulse duration-1000' width={70} height={70} src="/icon.svg" alt='favorite' />
         </div>
     }
 
@@ -54,11 +57,23 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
         </div>
     }
     if (!boards.length && query.favorites) {
-        return <div className='h-full flex flex-col items-center justify-center'>
-            <Image width={120} height={120} src="/addToFavorite.png" alt='favorite' />
-            <h2 className='text-2xl font-semibold mt-2'>Favorites</h2>
-            <p className='text-sm text-muted-foreground'>Add board to favorite to list here.</p>
-        </div>
+        return <div className='@container h-full flex-col overflow-auto p-6'>
+            <div className='flex justify-between items-center'>
+                <h2 className='text-xl sm:text-3xl font-semibold'>{query.favorites ? "Favorite Boards" : "Team Boards"}</h2>
+                <Button size="icon" variant="outline" className='flex md:hidden'>
+                    {query.favorites ? <Link href={{ pathname: "/" }}>
+                        <ChevronLeft className="size-5" />
+                    </Link> : <Link href={{ pathname: "/", query: { favorites: true } }}>
+                        <Star className="size-7" />
+                    </Link>}
+                </Button>
+            </div>
+            <div className='flex flex-col items-center justify-center h-full'>
+                <Image width={120} height={120} src="/addToFavorite.png" alt='favorite' />
+                <h2 className='text-2xl font-semibold mt-2'>Favorites</h2>
+                <p className='text-sm text-muted-foreground'>Add board to favorite to list here.</p>
+            </div>
+        </div >
     }
     if (!boards.length) {
         return <div className='h-full flex flex-col items-center justify-center'>
@@ -66,14 +81,23 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
             <h2 className='text-2xl font-semibold mt-2'>Create Your first board!</h2>
             <p className='text-sm text-muted-foreground'>Start by creating a board for your organization</p>
             <Button className='mt-3' disabled={pending} onClick={createNewBoard}>
-                {pending ? <Image className=' animate-spin duration-1000' src="/logoWhite.png" width={20} height={20} alt='loading' /> : "Create a board"}
+                {pending ? <Image className='animate-spin duration-1000' src="/logoWhite.png" width={20} height={20} alt='loading' /> : "Create a board"}
             </Button>
         </div>
     }
 
     return (
         <div className='@container h-full flex-col overflow-auto p-6'>
-            <h2 className='text-3xl font-semibold'>{query.favorites ? "Favorite Boards" : "Team Boards"}</h2>
+            <div className='flex justify-between items-center'>
+                <h2 className='text-xl sm:text-3xl font-semibold'>{query.favorites ? "Favorite Boards" : "Team Boards"}</h2>
+                <Button size="icon" variant="outline" className='flex md:hidden'>
+                    {query.favorites ? <Link href={{ pathname: "/" }}>
+                        <ChevronLeft className="size-4" />
+                    </Link> : <Link href={{ pathname: "/", query: { favorites: true } }}>
+                        <Star className="size-7" />
+                    </Link>}
+                </Button>
+            </div>
             <div className='grid gap-4 @[480px]:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  grid-flow-row mt-6 pb-10'>
                 <NewBoardButton />
                 {boards.map((board) => {

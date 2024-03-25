@@ -14,8 +14,7 @@ export const OrgSidebar = () => {
         <div className="hidden md:flex flex-col space-y-6  pl-5 pt-5">
             <Link href="/">
                 <div className="flex items-center gap-1">
-                    <Image src="./logo.svg" width={40} height={40} alt="logo" />
-                    <span className="font-bold text-2xl">Skribble</span>
+                    <Image src="./logo.svg" width={240} height={40} alt="logo" />
                 </div>
             </Link>
             <OrganizationSwitcher hidePersonal

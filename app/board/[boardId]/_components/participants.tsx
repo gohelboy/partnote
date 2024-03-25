@@ -13,7 +13,7 @@ const Participant = () => {
     const hasMoreUsers = users.length > MAX_VISIBLE_USERS;
 
     return (
-        <div className='absolute top-2 right-2 h-12 bg-white rounded-lg px-2 shadow-md flex items-center justify-center gap-2'>
+        <div className='absolute top-2 right-2 min-h-12 bg-white p-2 rounded-lg  shadow-md flex flex-col sm:flex-row items-center justify-center gap-2'>
             {users.slice(0, MAX_VISIBLE_USERS).map(({ connectionId, info }) => {
                 return <UserAvatar borderColor={connectionIdColor(connectionId)}
                     key={connectionId}
